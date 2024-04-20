@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sdigit.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 19:31:41 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 13:31:04 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/19 18:20:41 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/20 02:55:38 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isdigit(int digit)
+
+#include "libft.h"
+
+char    *ft_strchr(const char *s, int c)
 {
-	if (digit >= 0 && digit <= 9)
-		return (1);
-	else
-		return (0);
+    int count;
+
+    count = 0;
+    
+    while (s[count] != '\0')
+    {
+        if (s[count] == c)
+            return ((char *)&s[count]);
+        count++;
+    }
+    return (NULL);
 }

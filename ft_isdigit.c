@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sdigit.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 19:31:41 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 13:31:04 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/16 19:36:51 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/17 19:32:48 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isdigit(int digit)
+
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
-	if (digit >= 0 && digit <= 9)
+	if (c >= '0' && c <= '9')
 		return (1);
 	else
 		return (0);

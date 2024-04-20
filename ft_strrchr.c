@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 20:11:51 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/19 17:57:52 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/20 01:22:45 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/20 02:54:02 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+char    *ft_strrchr(const char *s, int c)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+    int length;
+
+    length = ft_strlen(s);
+
+    while (length >= 0)
+    {
+        if (s[length] == c)
+            return ((char *)&s[length]);
+        length--;
+    }
+    return (NULL);
 }

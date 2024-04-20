@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sdigit.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 19:31:41 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 13:31:04 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/16 21:12:40 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/20 02:55:54 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isdigit(int digit)
+
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	if (digit >= 0 && digit <= 9)
-		return (1);
-	else
-		return (0);
+	char *zero;
+
+	zero = (char *)s;
+
+	while (n > 0)
+	{
+		*(zero++) = '0';
+		n--;
+	}
+	return;
 }

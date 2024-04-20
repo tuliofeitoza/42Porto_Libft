@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 20:23:34 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/10 20:25:35 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/16 20:07:53 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/17 19:32:50 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_isascii(unsigned int i)
+int	ft_isascii(int c)
 {
-	if (i >= 0 && i <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	else
 		return (0);

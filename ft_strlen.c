@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sdigit.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 19:31:41 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 13:31:04 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/16 20:45:03 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/20 02:26:00 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isdigit(int digit)
+
+#include "libft.h"
+
+size_t ft_strlen(const char *s)
 {
-	if (digit >= 0 && digit <= 9)
-		return (1);
-	else
-		return (0);
+    size_t i;
+
+    i = 0;
+
+    while(s[i] != '\0')
+    {
+        i++;
+    }
+    return (i);
 }
+
+// int main()
+// {
+//     char a[10] = "ss";
+
+//     printf("%ld", ft_strlen(a));
+// }

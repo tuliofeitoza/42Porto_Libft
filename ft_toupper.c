@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sdigit.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 19:31:41 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/15 13:31:04 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/19 17:35:52 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/19 17:49:15 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isdigit(int digit)
+
+#include "libft.h"
+
+int ft_toupper(int c)
 {
-	if (digit >= 0 && digit <= 9)
-		return (1);
-	else
-		return (0);
+    if (c >= 97 && c <= 122)
+    {
+        c -= 32;   
+    }
+    return (c);
 }

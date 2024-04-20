@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 20:11:51 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/19 17:57:52 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/17 19:45:53 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/20 02:57:05 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+size_t  ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+    size_t  count;
+
+    count = 0;
+
+    if (size > 0)
+    {
+        while (*src != '\0' && count < size - 1)
+        {
+            *dst++ = *src++;
+            count++;
+        }
+        *dst = ('\0');
+    }
+    return (count);
 }
