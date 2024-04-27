@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 17:49:43 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/27 19:24:25 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/20 03:10:49 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/27 19:30:05 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (c >= 65 && c <= 90)
+	size_t	i;
+
+	i = 0;
+	while ((s1[i] != '\0' && s2[i] != '\0') && n > 0)
 	{
-		c += 32;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+		n--;
 	}
-	return (c);
+	return (0);
 }

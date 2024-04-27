@@ -6,28 +6,20 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:45:03 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/20 02:26:00 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:27:11 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-
-    while(s[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
-
-// int main()
-// {
-//     char a[10] = "ss";
-
-//     printf("%ld", ft_strlen(a));
-// }

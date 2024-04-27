@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 17:49:43 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/27 19:24:25 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/27 17:54:23 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/04/27 19:28:11 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (c >= 65 && c <= 90)
-	{
-		c += 32;
-	}
-	return (c);
+	size_t	i;
 }

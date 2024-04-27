@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 21:12:40 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/20 02:55:54 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/04/23 22:47:41 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char *zero;
+	char	*zero;
 
 	zero = (char *)s;
-
 	while (n > 0)
 	{
-		*(zero++) = '0';
+		*(zero++) = 0;
 		n--;
 	}
-	return;
 }
