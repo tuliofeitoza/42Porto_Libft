@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 18:20:41 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 01:29:01 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/05/02 03:52:04 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/05/02 05:18:33 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	while (*s != '\0')
-	{
-		if (*s == (const char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char )c == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
+	size_t	start;
+	size_t	end;
+	char	*str;
+
+	if (s1 == NULL || set == NULL)
+		return (NULL);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	str = ft_substr(s1, start, end - start);
+	return (str);
 }
 /*
 int	main(void)
 {
-    printf("%s", ft_strchr("Hello, Word", 'o'));
+    printf("%s", ft_strtrim("abababaChoque Tontoababa", "ab"));  
 }
 */

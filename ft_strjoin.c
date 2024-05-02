@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 03:10:49 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/01 19:35:30 by tsilva-f         ###   ########.fr       */
+/*   Created: 2024/04/28 10:00:31 by tsilva-f          #+#    #+#             */
+/*   Updated: 2024/05/02 03:36:58 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	char	*substr;
+	size_t	cpys1;
+	size_t	cpys2;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] || s2[i]) && i < n)
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	cpys1 = ft_strlen(s1);
+	cpys2 = ft_strlen(s2);
+	substr = ft_calloc(cpys1 + cpys2 + 1, sizeof(char));
+	if (substr == NULL)
+		return (NULL);
+	ft_strlcpy(substr, s1, cpys1 + 1);
+	ft_strlcpy(substr + cpys1, s2, cpys2 + 1);
+	return (substr);
 }

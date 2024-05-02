@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 17:54:23 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/04/27 19:28:11 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/02 04:12:15 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,30 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
+	char	*substring;
+
+	substring = 0;
+	if (s == NULL)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > (ft_strlen(s) - start))
+		len = (ft_strlen(s) - start);
+	substring = (char *)ft_calloc(len + 1, sizeof(char));
+	if (substring == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0' && len > 0)
+	{
+		substring[i] = s[start + i];
+		i++;
+		len--;
+	}
+	return (substring);
 }
+/*
+int	main(void)
+{
+	printf("%s", ft_substr("Teste Cubado Testado", 5, 4));
+}
+*/
