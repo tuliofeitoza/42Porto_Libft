@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:46:39 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 07:19:08 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/04 03:10:59 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,8 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putendl_fd(char *s, int fd);
 char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	**ft_split(char const *s, char c);
 
 #endif
