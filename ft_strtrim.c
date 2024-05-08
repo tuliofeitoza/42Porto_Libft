@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 03:52:04 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 05:18:33 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/07 22:41:17 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*
 int	main(void)
 {
-    printf("%s", ft_strtrim("abababaChoque Tontoababa", "ab"));  
+    printf("%s", ft_strtrim("abababaChoque Tontoababa", " "));  
 }
 */

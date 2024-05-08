@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 10:00:31 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 03:36:58 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/07 12:43:05 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcpy(substr + cpys1, s2, cpys2 + 1);
 	return (substr);
 }
+
+/*
+int main()
+{
+	char *str1 = "Paco";
+	char *str2 = " --strict";
+	char *result = ft_strjoin(str1, str2);
+	printf("%s", result);
+	free(result);
+}
+*/

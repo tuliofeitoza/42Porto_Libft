@@ -6,14 +6,13 @@
 #    By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 15:03:46 by tsilva-f          #+#    #+#              #
-#    Updated: 2024/05/04 03:13:58 by tsilva-f         ###   ########.fr        #
+#    Updated: 2024/05/08 02:52:01 by tsilva-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#Nome da blibioteca.
+
 NAME = libft.a
 
-#Funcoes a serem incluidas na blibioteca.
 FUNC = ft_isprint.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isalpha.c \
 		ft_strlen.c ft_bzero.c ft_memcpy.c ft_memset.c ft_memmove.c \
 			ft_strlcpy.c ft_strlcat.c ft_tolower.c ft_toupper.c ft_strchr.c \
@@ -21,39 +20,34 @@ FUNC = ft_isprint.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isalpha.c \
 					ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 						ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 							ft_itoa.c ft_strmapi.c ft_striteri.c ft_split.c 
-						
-					
-#Flags.
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
-#Comandos requiridos.
+FUNC_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+				ft_lstdelone.c ft_lstclear.c ft_lstiter.c #ft_lstmap.c 
+
+CFLAGS = -Wall -Wextra -Werror -g3
+
 CC = cc
 RM = rm -rf
 
-#Gera uma lista de arquivos de objetos (.o) a partir dos arquivos-fonte (.c).
 OBJS = $(FUNC:.c=.o)
+OBJS_BONUS = $(FUNC_BONUS:.c=.o)
 
-#Criar a blibioteca.
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	$(MSGAR)
+$(NAME): $(OBJS) $(OBJS_BONUS)
+	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
 
+bonus: $(OBJS) $(OBJS_BONUS)
+	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
+	
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
-	$(MSGCC)
 
-#Aapaga os arquivos gerados.
 clean:
-	$(RM) $(OBJS)
-	$(MSGRM)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
-#Apaga tudo incluindo a blibioteca.
 fclean: clean 
 	$(RM) $(NAME)
-	$(MSGRM)
 
-#Recompila tudo.
 re: fclean all
 

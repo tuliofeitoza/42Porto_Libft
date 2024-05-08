@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 17:54:23 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/02 04:12:15 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/07 22:40:00 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*
 int	main(void)
 {
-	printf("%s", ft_substr("Teste Cubado Testado", 5, 4));
+	char *result = ft_substr("Test Cubed Testing", 5, 1);
+	printf("%s", result);
+	free(result);
+	return (0);
 }
 */

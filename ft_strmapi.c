@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 02:51:57 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/03 03:47:41 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/07 12:17:24 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,21 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = ('\0');
 	return (str);
 }
+/*
+void	ft_strtolower(unsigned int i, char *str)
+{
+	while (*str != '\0')
+	{
+		if (*str >= 'A' && *str <= 'Z' && i != -1)
+			*str += 32;
+		str++;
+	}
+}
+
+int	main()
+{
+	char str[] = "HELLO WORD";
+	ft_strmapi(str, &ft_strtolower);
+	return (0);
+}
+*/

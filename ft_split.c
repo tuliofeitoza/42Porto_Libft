@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 02:42:21 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/06 23:57:01 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/08 00:00:27 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 static char		*ft_strndup(const char *str, size_t len);
 static size_t	ft_countword(const char *str, char c);
+static int		populate_words(char **words, char const *s, char c,
+					size_t countword);
+static void		free_words(char **words);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**words;
 	size_t	countword;
-	size_t	i;
-	size_t	j;
 
 	if (s == NULL)
 		return (NULL);
@@ -28,8 +29,22 @@ char	**ft_split(char const *s, char c)
 	words = ft_calloc(countword + 1, sizeof(char *));
 	if (words == NULL)
 		return (NULL);
-	i = -1;
-	while (++i < countword)
+	if (!populate_words(words, s, c, countword))
+	{
+		free_words(words);
+		return (NULL);
+	}
+	return (words);
+}
+
+static int	populate_words(char **words, char const *s, char c,
+		size_t countword)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < countword)
 	{
 		while (*s == c)
 			s++;
@@ -37,10 +52,23 @@ char	**ft_split(char const *s, char c)
 		while (s[j] != '\0' && s[j] != c)
 			j++;
 		words[i] = ft_strndup(s, j);
+		if (words[i] == NULL)
+			return (0);
 		s += j;
+		i++;
 	}
 	words[i] = NULL;
-	return (words);
+	return (1);
+}
+
+static void	free_words(char **words)
+{
+	size_t	i;
+
+	i = 0;
+	while (words[i])
+		free(words[i++]);
+	free(words);
 }
 
 static char	*ft_strndup(const char *str, size_t len)
@@ -79,12 +107,15 @@ static size_t	ft_countword(const char *str, char c)
 }
 
 /*
-int main()
+int	main(void)
 {
-    char **result = ft_split("-Mestre-dos-magos", '-');
+	char	**result;
+	size_t	i;
+
+    result = ft_split("-Mestre-dos-magos", '-');
     if (result != NULL)
     {
-        size_t i = 0;
+        i = 0;
         while (result[i] != NULL)
         {
             printf("%s\n", result[i]);
@@ -93,6 +124,6 @@ int main()
         }
         free(result);
     }
-    return 0;
+    return (0);
 }
 */
