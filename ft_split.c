@@ -6,7 +6,7 @@
 /*   By: tsilva-f <tsilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 02:42:21 by tsilva-f          #+#    #+#             */
-/*   Updated: 2024/05/08 00:00:27 by tsilva-f         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:16:10 by tsilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char		*ft_strndup(const char *str, size_t len);
 static size_t	ft_countword(const char *str, char c);
-static int		populate_words(char **words, char const *s, char c,
+static int		ft_wordsadd(char **words, char const *s, char c,
 					size_t countword);
 static void		free_words(char **words);
 
@@ -29,7 +29,7 @@ char	**ft_split(char const *s, char c)
 	words = ft_calloc(countword + 1, sizeof(char *));
 	if (words == NULL)
 		return (NULL);
-	if (!populate_words(words, s, c, countword))
+	if (!ft_wordsadd(words, s, c, countword))
 	{
 		free_words(words);
 		return (NULL);
@@ -37,7 +37,7 @@ char	**ft_split(char const *s, char c)
 	return (words);
 }
 
-static int	populate_words(char **words, char const *s, char c,
+static int	ft_wordsadd(char **words, char const *s, char c,
 		size_t countword)
 {
 	size_t	i;
