@@ -20,6 +20,7 @@
     <li><a href="#mandatory-part">Mandatory Part</a></li>
     <li><a href="#bonus-part">Bonus Part</a></li>
     <li><a href="#submission-and-peer-evaluation">Submission and Peer-Evaluation</a></li>
+    <li><a href="#resources-and-testing">Resources and Testing</a></li>
 </ul>
 
 <h2 id="introduction">Introduction</h2>
@@ -127,4 +128,199 @@
 <ul>
     <li><strong>Function name:</strong> ft_strtrim</li>
     <li><strong>Prototype:</strong> char *ft_strtrim(char const *s1, char const *set);</li>
-    <li><strong>Parameters:</strong> s1
+    <li><strong>Parameters:</strong> s1: The string to be trimmed. set: The reference set of characters to trim.</li>
+    <li><strong>Return value:</strong> The trimmed string. NULL if the allocation fails.</li>
+    <li><strong>External functions:</strong> malloc</li>
+    <li><strong>Description:</strong> Allocates (with malloc(3)) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of the string.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_split</li>
+    <li><strong>Prototype:</strong> char **ft_split(char const *s, char c);</li>
+    <li><strong>Parameters:</strong> s: The string to be split. c: The delimiter character.</li>
+    <li><strong>Return value:</strong> The array of new strings resulting from the split. NULL if the allocation fails.</li>
+    <li><strong>External functions:</strong> malloc, free</li>
+    <li><strong>Description:</strong> Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter. The array must end with a NULL pointer.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_itoa</li>
+    <li><strong>Prototype:</strong> char *ft_itoa(int n);</li>
+    <li><strong>Parameters:</strong> n: the integer to convert.</li>
+    <li><strong>Return value:</strong> The string representing the integer. NULL if the allocation fails.</li>
+    <li><strong>External functions:</strong> malloc</li>
+    <li><strong>Description:</strong> Allocates (with malloc(3)) and returns a string representing the integer received as an argument. Negative numbers must be handled.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_strmapi</li>
+    <li><strong>Prototype:</strong> char *ft_strmapi(char const *s, char (*f)(unsigned int, char));</li>
+    <li><strong>Parameters:</strong> s: The string on which to iterate. f: The function to apply to each character.</li>
+    <li><strong>Return value:</strong> The string created from the successive applications of ’f’. Returns NULL if the allocation fails.</li>
+    <li><strong>External functions:</strong> malloc</li>
+    <li><strong>Description:</strong> Applies the function f to each character of the string s, passing its index as the first argument and the character itself as the second. A new string is created (using malloc(3)) to collect the results from the successive applications of f.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_striteri</li>
+    <li><strong>Prototype:</strong> void ft_striteri(char *s, void (*f)(unsigned int, char*));</li>
+    <li><strong>Parameters:</strong> s: The string on which to iterate. f: The function to apply to each character.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> None</li>
+    <li><strong>Description:</strong> Applies the function ’f’ on each character of the string passed as argument, passing its index as first argument. Each character is passed by address to ’f’ to be modified if necessary.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_putchar_fd</li>
+    <li><strong>Prototype:</strong> void ft_putchar_fd(char c, int fd);</li>
+    <li><strong>Parameters:</strong> c: The character to output. fd: The file descriptor on which to write.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> write</li>
+    <li><strong>Description:</strong> Outputs the character ’c’ to the given file descriptor.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_putstr_fd</li>
+    <li><strong>Prototype:</strong> void ft_putstr_fd(char *s, int fd);</li>
+    <li><strong>Parameters:</strong> s: The string to output. fd: The file descriptor on which to write.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> write</li>
+    <li><strong>Description:</strong> Outputs the string ’s’ to the given file descriptor.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_putendl_fd</li>
+    <li><strong>Prototype:</strong> void ft_putendl_fd(char *s, int fd);</li>
+    <li><strong>Parameters:</strong> s: The string to output. fd: The file descriptor on which to write.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> write</li>
+    <li><strong>Description:</strong> Outputs the string ’s’ to the given file descriptor followed by a newline.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_putnbr_fd</li>
+    <li><strong>Prototype:</strong> void ft_putnbr_fd(int n, int fd);</li>
+    <li><strong>Parameters:</strong> n: The integer to output. fd: The file descriptor on which to write.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> write</li>
+    <li><strong>Description:</strong> Outputs the integer ’n’ to the given file descriptor.</li>
+</ul>
+
+<h2 id="bonus-part">Bonus Part</h2>
+<p>
+    If you completed the mandatory part, do not hesitate to go further by doing this extra one. It will bring bonus points if passed successfully.
+</p>
+<p>
+    Functions to manipulate memory and strings are very useful. But you will soon discover that manipulating lists is even more useful.
+</p>
+<p>
+    You have to use the following structure to represent a node of your list. Add its declaration to your libft.h file:
+</p>
+<pre><code>typedef struct s_list
+{
+    void *content;
+    struct s_list *next;
+} t_list;</code></pre>
+<p>
+    The members of the t_list struct are:
+</p>
+<ul>
+    <li>content: The data contained in the node. void * allows to store any kind of data.</li>
+    <li>next: The address of the next node, or NULL if the next node is the last one.</li>
+</ul>
+<p>
+    In your Makefile, add a make bonus rule to add the bonus functions to your libft.a.
+</p>
+<p>
+    The bonus part will only be assessed if the mandatory part is PERFECT. Perfect means the mandatory part has been integrally done and works without malfunctioning. If you have not passed ALL the mandatory requirements, your bonus part will not be evaluated at all.
+</p>
+
+<h3>Bonus Functions</h3>
+<ul>
+    <li><strong>Function name:</strong> ft_lstnew</li>
+    <li><strong>Prototype:</strong> t_list *ft_lstnew(void *content);</li>
+    <li><strong>Parameters:</strong> content: The content to create the node with.</li>
+    <li><strong>Return value:</strong> The new node</li>
+    <li><strong>External functions:</strong> malloc</li>
+    <li><strong>Description:</strong> Allocates (with malloc(3)) and returns a new node. The member variable ’content’ is initialized with the value of the parameter ’content’. The variable ’next’ is initialized to NULL.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstadd_front</li>
+    <li><strong>Prototype:</strong> void ft_lstadd_front(t_list **lst, t_list *new);</li>
+    <li><strong>Parameters:</strong> lst: The address of a pointer to the first link of a list. new: The address of a pointer to the node to be added to the list.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> None</li>
+    <li><strong>Description:</strong> Adds the node ’new’ at the beginning of the list.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstsize</li>
+    <li><strong>Prototype:</strong> int ft_lstsize(t_list *lst);</li>
+    <li><strong>Parameters:</strong> lst: The beginning of the list.</li>
+    <li><strong>Return value:</strong> The length of the list</li>
+    <li><strong>External functions:</strong> None</li>
+    <li><strong>Description:</strong> Counts the number of nodes in a list.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstlast</li>
+    <li><strong>Prototype:</strong> t_list *ft_lstlast(t_list *lst);</li>
+    <li><strong>Parameters:</strong> lst: The beginning of the list.</li>
+    <li><strong>Return value:</strong> Last node of the list</li>
+    <li><strong>External functions:</strong> None</li>
+    <li><strong>Description:</strong> Returns the last node of the list.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstadd_back</li>
+    <li><strong>Prototype:</strong> void ft_lstadd_back(t_list **lst, t_list *new);</li>
+    <li><strong>Parameters:</strong> lst: The address of a pointer to the first link of a list. new: The address of a pointer to the node to be added to the list.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> None</li>
+    <li><strong>Description:</strong> Adds the node ’new’ at the end of the list.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstdelone</li>
+    <li><strong>Prototype:</strong> void ft_lstdelone(t_list *lst, void (*del)(void *));</li>
+    <li><strong>Parameters:</strong> lst: The node to free. del: The address of the function used to delete the content.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> free</li>
+    <li><strong>Description:</strong> Takes as a parameter a node and frees the memory of the node’s content using the function ’del’ given as a parameter and free the node. The memory of ’next’ must not be freed.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstclear</li>
+    <li><strong>Prototype:</strong> void ft_lstclear(t_list **lst, void (*del)(void *));</li>
+    <li><strong>Parameters:</strong> lst: The address of a pointer to a node. del: The address of the function used to delete the content of the node.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> free</li>
+    <li><strong>Description:</strong> Deletes and frees the given node and every successor of that node, using the function ’del’ and free(3). Finally, the pointer to the list must be set to NULL.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstiter</li>
+    <li><strong>Prototype:</strong> void ft_lstiter(t_list *lst, void (*f)(void *));</li>
+    <li><strong>Parameters:</strong> lst: The address of a pointer to a node. f: The address of the function used to iterate on the list.</li>
+    <li><strong>Return value:</strong> None</li>
+    <li><strong>External functions:</strong> None</li>
+    <li><strong>Description:</strong> Iterates the list ’lst’ and applies the function ’f’ on the content of each node.</li>
+</ul>
+<ul>
+    <li><strong>Function name:</strong> ft_lstmap</li>
+    <li><strong>Prototype:</strong> t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));</li>
+    <li><strong>Parameters:</strong> lst: The address of a pointer to a node. f: The address of the function used to iterate on the list. del: The address of the function used to delete the content of a node if needed.</li>
+    <li><strong>Return value:</strong> The new list. NULL if the allocation fails.</li>
+    <li><strong>External functions:</strong> malloc, free</li>
+    <li><strong>Description:</strong> Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new list resulting of the successive applications of the function ’f’. The ’del’ function is used to delete the content of a node if needed.</li>
+</ul>
+
+<h2 id="submission-and-peer-evaluation">Submission and Peer-Evaluation</h2>
+<p>
+    Turn in your assignment in your git repository as usual. Only the work inside your repository will be evaluated during the defense. Don’t hesitate to double check the names of your files to ensure they are correct. Place all your files at the root of your repository.
+</p>
+
+<h2 id="resources-and-testing">Resources and Testing</h2>
+<p>
+    Here are some useful resources and testing tools to help you with your libft project:
+</p>
+<ul>
+    <li><a href="https://github.com/jtoty/Libftest">Libftest</a>: A comprehensive test suite for libft.</li>
+    <li><a href="https://github.com/alelievr/libft-unit-test">libft-unit-test</a>: Another great test suite for libft.</li>
+    <li><a href="https://github.com/Tripouille/libftTester">libftTester</a>: A simple and effective libft tester.</li>
+    <li><a href="https://github.com/y3ll0w42/libft-war-machine">libft-war-machine</a>: A battle-tested suite to ensure your libft is robust.</li>
+    <li><a href="https://github.com/42Paris/42cursus-libft">42cursus-libft</a>: The official repository for the 42 school libft project.</li>
+</ul>
+
+<hr>
+
+<p>Thank you for checking out the <strong>libft</strong> project! Happy coding!</p>
+
+</body>
+</html>
